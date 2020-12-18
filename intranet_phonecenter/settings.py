@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -59,7 +60,14 @@ ROOT_URLCONF = 'intranet_phonecenter.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'intranet_phonecenter', 'templates'),
+            # os.path.join(BASE_DIR, 'users', 'templates'), # No needed thanks to APP_DIRS
+            # os.path.join(BASE_DIR, 'customer', 'templates'), # No needed thanks to APP_DIRS
+            # os.path.join(BASE_DIR, 'credits', 'templates'), # No needed thanks to APP_DIRS
+            # os.path.join(BASE_DIR, 'calls', 'templates'), # No needed thanks to APP_DIRS
+            # os.path.join(BASE_DIR, 'supports', 'templates'), # No needed thanks to APP_DIRS
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
